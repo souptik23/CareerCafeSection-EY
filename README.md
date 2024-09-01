@@ -1,1 +1,1 @@
-# Chatify
+# Chatapp
