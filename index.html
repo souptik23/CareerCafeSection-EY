@@ -1,28 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatify chat app</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="src/output.css">
+
+
+    <style>
+        .gallery-item {
+            position: relative;
+            width: calc(33.33% - 2rem);
+            /* Adjust width of cards to leave space for gaps */
+            padding: 1rem;
+            box-sizing: border-box;
+            /* Ensure padding is included in the width */
+            margin: 1rem;
+            /* Add margin to create gaps between the cards */
+            border-radius: 10px;
+            /* Rounded corners for the gallery item */
+            overflow: hidden;
+            /* Ensure content doesn't overflow the rounded corners */
+        }
+
+        .gallery-item img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            /* Ensure the image has rounded corners */
+        }
+
+        .gallery-item .overlay {
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            border: 4px solid #e5e7eb;
+            background-color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 10px;
+            /* Rounded corners for the overlay */
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay h2 {
+            letter-spacing: 0.1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #6366f1;
+            margin-bottom: 0.25rem;
+        }
+
+        .gallery-item .overlay h1 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+        }
+
+        .gallery-item .overlay p {
+            line-height: 1.625rem;
+        }
+
+        /* Make the gallery items responsive on smaller screens */
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: calc(50% - 1rem);
+                /* 2 items per row on medium screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                width: 100%;
+                /* 1 item per row on small screens */
+            }
+        }
+
+
+    </style>
+
+
 </head>
-<body>
-    <section class="chat_section">
-        <div class="brand">
-            <img height="40" src="/wassup.png">
-            <h1>wassup</h1>
+
+
+
+<body style="margin: 0; height: 100%; display: flex; flex-direction: column;">
+
+    <h2 style="font-size: 2.25rem; font-weight: 800; color: #1a202c; text-align: center; line-height: 1.5; height: 15vh;flex: auto;">
+        Career
+        <span style="text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: #6366f1;">
+            Kafe
+        </span>
+    </h2>
+
+
+    <!-- First row section: chat and hello side by side -->
+    <div style="display: flex; width: 100%; height: 85vh;">
+
+        <!-- Chat section (left side) -->
+        <div
+            style="flex: 1; height: 100%; padding: 20px; background-color: #f3f4f6; display: flex; flex-direction: column; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); padding: 30px;">
+
+            <!-- Chat section (branding area) -->
+            <div class="brand" style="display: flex; align-items: center; gap: 10px; padding-bottom: 20px;">
+                <img height="30" src="/wassup.png">
+                <h1 style="margin: 0; font-size: 1.5rem;">Baatchit</h1>
+            </div>
+
+            <!-- Message area -->
+            <div class="message_area"
+                style="flex: 1; background-color: #ffffff; overflow-y: auto; padding: 10px; padding-top: 40px; border-radius: 10px;">
+                <!-- Messages will appear here -->
+            </div>
+
+            <!-- Text area to type the message -->
+            <div style="margin-top: 10px;">
+                <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."
+                    style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+            </div>
+
         </div>
-        <div class="message_area">
-            
+
+
+        <!-- Hello section (right side) -->
+        <div style="flex: 1; display: flex; justify-content: center; align-items: center; background-color: #e0e0e0;">
+            <p style="font-size: 2rem;">helo</p>
         </div>
-       
-        <div>
-            <textarea  id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+
+    </div>
+
+    <!-- Second row section (below the chat and hello section) -->
+    <div
+        style="width: 100%; height: 100vh; background-color: #ffffff; display: flex; justify-content: center; align-items: center;">
+        <!-- <p style="font-size: 1.5rem;">This is the new bottom section</p> -->
+
+        <section style="color: #4a4a4a; font-family: sans-serif;">
+
+            <div style="max-width: 1280px; margin: 0 auto; padding: 6rem 1.25rem; ">
+                <div
+                    style="display: flex; flex-direction: column; text-align: center; width: 100%; margin-bottom: 5rem;">
+                    <h1 style="font-size: 2rem; font-weight: 500; margin-bottom: 1rem; color: #1a202c;">Master Cleanse
+                        Reliac Heirloom</h1>
+
+                </div>
+
+                <!-- IMAGES -->
+                <div style="display: flex; flex-wrap: wrap; margin: -1rem;">
+                    <div class="gallery-item">
+                        <img alt="gallery" src="https://i.ytimg.com/vi/z9YAgrq2TRQ/hqdefault.jpg">
+                        <div class="overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .7); display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 20px;">
+                            <div class="overlay"
+                                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;">
+                                <a href="https://video-react-livestream-app.vercel.app/"
+                                    style="text-decoration: none; color: #fff; font-size: 18px; font-weight: bold; background-color: #3498db; padding: 12px 30px; border-radius: 5px; transition: background-color 0.3s;">
+                                    Connect Now
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item">
+                        <img alt="gallery" src="https://mgmits.ac.in/wp-content/uploads/2022/03/Tech-talk-CE.png">
+                        <div class="overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .7); display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 20px;">
+                            <div class="overlay"
+                                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;">
+                                <a href="https://video-react-livestream-app.vercel.app/"
+                                    style="text-decoration: none; color: #fff; font-size: 18px; font-weight: bold; background-color: #3498db; padding: 12px 30px; border-radius: 5px; transition: background-color 0.3s;">
+                                    Connect Now
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item">
+                        <img alt="gallery"
+                            src="https://i.ytimg.com/vi/LpAAs_SarjI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDYSrjz7pKio4n7FW34h-AOjpK9_w">
+                        <div class="overlay">
+                            <h2>THE SUBTITLE</h2>
+                            <h1>The Catalyzer</h1>
+                            <p>Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled
+                                waistcoat.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item">
+                        <img alt="gallery"
+                            src="https://postaresume.co.in/blog/wp-content/uploads/2023/10/Hemang-Shah-Audio-Event.png">
+                        <div class="overlay">
+                            <h2>THE SUBTITLE</h2>
+                            <h1>The Catalyzer</h1>
+                            <p>Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled
+                                waistcoat.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="gallery-item">
+                        <img alt="gallery" src="https://i.ytimg.com/vi/-6CADLT87VY/maxresdefault.jpg">
+                        <div class="overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .7); display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 20px;">
+                            <div class="overlay"
+                                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;">
+                                <a href="https://video-react-livestream-app.vercel.app/"
+                                    style="text-decoration: none; color: #fff; font-size: 18px; font-weight: bold; background-color: #3498db; padding: 12px 30px; border-radius: 5px; transition: background-color 0.3s;">
+                                    Connect Now
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img alt="gallery"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToNgPuTmjGtYTBPKRXkHcPN4frHcj230sbEw&s">
+                        <div class="overlay"
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .7); display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 20px;">
+                            <div class="overlay"
+                                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: center;">
+                                <a href="https://video-react-livestream-app.vercel.app/"
+                                    style="text-decoration: none; color: #fff; font-size: 18px; font-weight: bold; background-color: #3498db; padding: 12px 30px; border-radius: 5px; transition: background-color 0.3s;">
+                                    Connect Now
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <p style="margin: 0 auto; color: rgb(0, 132, 255); font-size: 18px; font-weight: bold; text-align: center; display: block; width: fit-content; padding-top: 30px; "
+                    onmouseover="this.style.color='#0056b3'" onmouseout="this.style.color='blue'">
+                    Learn More >></p>
+
+
+            </div>
+        </section>
+
+
+    </div>
+    <!-- Footer -->
+    <footer style="background-color: white; padding: 24px 16px; width: 100%; box-sizing: border-box;">
+        <div style="max-width: 1200px; margin: 0 auto; width: 100%; padding: 16px 0; box-sizing: border-box;">
+            <hr style="margin: 24px 0; border-color: #e5e7eb;" />
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; text-align: center;">
+                <span style="font-size: 14px; color: #6b7280;">© 2023 <a href="https://flowbite.com/"
+                        style="text-decoration: none; color: inherit;">Flowbite™</a>. All Rights Reserved.</span>
+                <div style="display: flex; margin-top: 16px; justify-content: center; gap: 16px;">
+                    <a href="#" style="text-decoration: none; color: #6b7280; transition: color 0.2s ease-in-out;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 19" fill="currentColor"
+                            style="width: 16px; height: 16px;">
+                            <path fill-rule="evenodd"
+                                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Facebook page</span>
+                    </a>
+                    <a href="#" style="text-decoration: none; color: #6b7280; transition: color 0.2s ease-in-out;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 16" fill="currentColor"
+                            style="width: 16px; height: 16px;">
+                            <path
+                                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+                        </svg>
+                        <span class="sr-only">Discord community</span>
+                    </a>
+                    <a href="#" style="text-decoration: none; color: #6b7280; transition: color 0.2s ease-in-out;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 17" fill="currentColor"
+                            style="width: 16px; height: 16px;">
+                            <path fill-rule="evenodd"
+                                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Twitter page</span>
+                    </a>
+                    <a href="#" style="text-decoration: none; color: #6b7280; transition: color 0.2s ease-in-out;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            style="width: 16px; height: 16px;">
+                            <path fill-rule="evenodd"
+                                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">GitHub account</span>
+                    </a>
+                    <a href="#" style="text-decoration: none; color: #6b7280; transition: color 0.2s ease-in-out;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            style="width: 16px; height: 16px;">
+                            <path fill-rule="evenodd"
+                                d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Dribbble account</span>
+                    </a>
+                </div>
+            </div>
         </div>
-    </section>
-    
+    </footer>
+
+
+
+
+
+
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
+
 </body>
+
 </html>
